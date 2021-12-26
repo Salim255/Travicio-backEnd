@@ -1,5 +1,7 @@
 {
     "mongoURI": "mongodb+srv://doshkka:Salim1993@travicio.m1mcy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-    "jwtSecret":"mysecrettoken"
+    "jwtSecret":"mysecrettoken",
+    "githubClientId": "041a6a6aa746829a7c8c",
+    "githubSecret":"0b24901a3f4ad0c994dad90619672272b24668b4"
 }
 
