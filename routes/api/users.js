@@ -12,9 +12,13 @@ const User = require('../../models/User');
 //1route POST api/users
 //2description Register user
 //3access Public
-
-router.post('/',[check('name', 'Name is required').not().isEmpty(),check('email', 'Please include a valid email').isEmail(),
-check('password', 'Please enter a password with 6 or more characters').isLength({min: 6})], async (req,res)=>{
+//register user
+router.post('/',
+[check('name', 'Name is required')
+.not().isEmpty(),
+check('email', 'Please include a valid email')
+.isEmail(),
+check('password', 'Please enter a password with 6 or more characters').isLength({ min: 6})], async (req,res)=>{
     const errors = validationResult(req);
 
     if(!errors.isEmpty()){
@@ -23,7 +27,7 @@ check('password', 'Please enter a password with 6 or more characters').isLength(
         });
     }
 
-    const {name, email, password} = req.body;
+    const { name, email, password } = req.body;
 
     try {
         
@@ -38,8 +42,8 @@ check('password', 'Please enter a password with 6 or more characters').isLength(
         //Get users gravatar
         const avatar = gravatar.url(email, {s: '200',r:'pg', d:'mm'});
 
-        user = new User({name, email, avatar, password});
-
+        user = new User({ name, email, avatar, password });
+        
         //Encrypt password
         const salt = await bcrypt.genSalt(10);
         user.password = await bcrypt.hash(password, salt);

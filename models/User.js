@@ -10,6 +10,10 @@ const UserShema = new mongoose.Schema({
         required:true,
         unique:true
     },
+    password: {
+        type: String,
+        required: true
+    },
     avatar:{//Its allow  to attach a profile image to your email
         type:String,//
     },
