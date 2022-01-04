@@ -1,3 +1,20 @@
 npm i express express-validator  bcryptjs config gravatar jsonwebtoken mongoose request 
 
 npm i -D nodemon concurrently
+
+
+////FRONT END//////
+
+npx create-react-app client
+
+"client": "npm start --prefix client",
+    "dev":"concurrently \"npm run server\" \"npm run client \"
+
+
+npm i axios
+
+npm i axios react-router-dom redux react-redux redux-thunk redux-devtools-extension moment react-moment
+
+rm -rf .git
+
+"proxy": "http://localhost:600"
