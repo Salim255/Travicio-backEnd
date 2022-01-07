@@ -18,3 +18,5 @@ npm i axios react-router-dom@5 redux react-redux redux-thunk redux-devtools-exte
 rm -rf .git
 
 "proxy": "http://localhost:600"
+
+npm i uuid
