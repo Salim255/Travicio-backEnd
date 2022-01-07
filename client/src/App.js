@@ -5,23 +5,30 @@ import Landing from './components/layout/Landing';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 
+//Redux
+import { Provider } from 'react-redux';//in order to connect redux with react
+import store from './store';
+
 import './App.css';
 
 
 const App =() => {
   return (
-    <Router>
-      < Fragment>
-          <Navbar/>
-          <Route exact  path='/' component={ Landing} />
-          <section>
-            <Switch>
-              <Route exact path='/register' component={ Register }/>
-              <Route exact path='/login' component={ Login }/>
-            </Switch>
-          </section>
-        </Fragment>
-    </Router>
+    <Provider store={store}>
+      <Router>
+        < Fragment>
+            <Navbar/>
+            <Route exact  path='/' component={ Landing} />
+            <section>
+              <Switch>
+                <Route exact path='/register' component={ Register }/>
+                <Route exact path='/login' component={ Login }/>
+              </Switch>
+            </section>
+          </Fragment>
+      </Router>
+    </Provider>
+    
   );
 }
 
