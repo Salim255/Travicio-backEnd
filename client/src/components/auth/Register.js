@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';//in order to connect this component with redux
 import { Link } from 'react-router-dom';
 import { setAlert } from '../../actions/alertAction';
+import { register } from '../../actions/authAction';
 
 
-const Register = ({ setAlert }) => {
+const Register = ({ setAlert , register}) => {
     const [formData, setFormData] = useState({
         name:'',
         email:'',
@@ -22,7 +23,7 @@ const Register = ({ setAlert }) => {
             setAlert('Password do not match', 'danger',2000);
         }else{
            
-            console.log("Success");
+            register({ name, email,password});
         }
     }
    
@@ -74,9 +75,10 @@ const Register = ({ setAlert }) => {
 };
 
 Register.prototype = {
-    setAlert: PropTypes.func.isRequired
+    setAlert: PropTypes.func.isRequired,
+    register: PropTypes.func.isRequired,
 }
 
 
 
-export default connect(null, {setAlert})(Register);
+export default connect(null, {setAlert, register})(Register);
