@@ -51,6 +51,7 @@ export const register = ({
         const errors = error.response.data.errors;
          
         if(errors){
+           
             errors.forEach(error => dispatch( setAlert(error.msg, 'danger')))
         }
         dispatch({
@@ -87,6 +88,7 @@ export const login = (
         const errors = error.response.data.errors;
          
         if(errors){
+            console.log(errors);
             errors.forEach(error => dispatch( setAlert(error.msg, 'danger')))
         }
         dispatch({
