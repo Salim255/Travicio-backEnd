@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {REGISTER_SUCCESS, REGISTER_FAIL, USER_LOADED,AUTH_ERROR, LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT} from './actionTypes';
+import {REGISTER_SUCCESS, REGISTER_FAIL, USER_LOADED,AUTH_ERROR, LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT, CLEAR_PROFILE} from './actionTypes';
 
 import { setAlert}  from './alertAction';
 
@@ -101,7 +101,10 @@ export const login = (
 export const logout = () => dispatch =>{
     dispatch({
         type: LOGOUT
-    })
+    });
+    dispatch({
+        type: CLEAR_PROFILE
+    });
 }
 
 

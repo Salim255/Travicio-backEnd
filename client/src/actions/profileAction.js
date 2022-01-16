@@ -2,7 +2,7 @@ import axios from 'axios';
 import { setAlert } from './alertAction';
 
 import { GET_PROFILE, PROFILE_ERROR
- } from './actionTypes';
+ , CLEAR_PROFILE} from './actionTypes';
 
  //Get current users profiles
  export const getCurrentProfile = () => async dispatch  => {
