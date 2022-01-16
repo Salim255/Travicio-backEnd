@@ -1,7 +1,15 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import PropTypes from 'prop-types'
+import { getCurrentProfile } from '../../actions/profileAction';
 
-const Dashboard = props => {
+import { connect } from 'react-redux';
+
+const Dashboard = ({getCurrentProfile, auth, profile}) => {
+
+    useEffect(() =>{
+        getCurrentProfile();
+    }, []);
+
     return (
         <div>
             Dashboard
@@ -10,7 +18,14 @@ const Dashboard = props => {
 }
 
 Dashboard.propTypes = {
-
+    getCurrentProfile: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+    profile: PropTypes.object.isRequired,
 }
 
-export default Dashboard
+const mapStateToProps = state =>({
+    auth: state.authReducer,
+    profile: state.profileReducer
+});
+
+export default connect(mapStateToProps, {getCurrentProfile})(Dashboard)
