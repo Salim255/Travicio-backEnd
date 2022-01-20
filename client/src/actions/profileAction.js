@@ -14,6 +14,7 @@ import { GET_PROFILE, PROFILE_ERROR
              payload: res.data
          })
      } catch (error) {
+         console.log("🌓🌓🌓",error);
          dispatch({
              type: PROFILE_ERROR,
              payload: { msg: error.response.statusText, status: error.response.status}
@@ -100,7 +101,7 @@ import { GET_PROFILE, PROFILE_ERROR
         }
 
         const res = await axios.put('/api/profile/education', formData, config);
-       console.log("🌏",res);
+       
         dispatch({
             type: UPDATE_PROFILE,
             payload: res.data
