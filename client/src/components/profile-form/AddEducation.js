@@ -50,7 +50,7 @@ const AddEducation = ({ addEducation, history}) => {
                 <input type="date" name="from" value={from} onChange={e => onChange(e)}/>
                 </div>
                 <div className="form-group">
-                <p><input type="checkbox"   checked={current} name="current"  value={current}  onChange={e => { setFormData({...formData, current:!current  }); toggleDisabled(!toDateDisabled)}} />{' '} Current Job</p>
+                <p><input type="checkbox"   checked={current} name="current"  value={current}  onChange={e => { setFormData({...formData, current:!current  }); toggleDisabled(!toDateDisabled)}} />{' '} Current School</p>
                 </div>
                 <div className="form-group">
                 <h4>To Date</h4>
