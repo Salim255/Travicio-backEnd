@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { setAlert } from './alertAction';
 
-import { GET_PROFILE, PROFILE_ERROR
- , UPDATE_PROFILE, CLEAR_PROFILE, ACCOUNT_DELETED, GET_PROFILES, GET_REPOS} from './actionTypes';
+import { GET_PROFILE,GET_PROFILES, PROFILE_ERROR
+ , UPDATE_PROFILE, CLEAR_PROFILE, ACCOUNT_DELETED,  GET_REPOS} from './actionTypes';
 
  //Get current users profiles
  export const getCurrentProfile = () => async dispatch  => {
@@ -14,7 +14,7 @@ import { GET_PROFILE, PROFILE_ERROR
              payload: res.data
          })
      } catch (error) {
-         console.log("🌓🌓🌓",error);
+        
          dispatch({
              type: PROFILE_ERROR,
              payload: { msg: error.response.statusText, status: error.response.status}
@@ -24,11 +24,12 @@ import { GET_PROFILE, PROFILE_ERROR
 
  //Get all profiles
  export const getProfiles = () => async dispatch  => {
-
+   
     dispatch({ type: CLEAR_PROFILE});
     try {
+       
         const res = await axios.get('/api/profile');
-         
+        
         dispatch({
             type: GET_PROFILES,
             payload: res.data
@@ -44,8 +45,6 @@ import { GET_PROFILE, PROFILE_ERROR
 
 //Get profile by Id
 export const getProfileById = userId => async dispatch  => {
-
-   
     try {
         const res = await axios.get(`/api/profile/${userId}`);
          
@@ -124,7 +123,7 @@ export const getGithubRepos = username => async dispatch  => {
             }
         }
        
-        console.log('🌓🌓formData', formData);
+     
         const res = await axios.put('/api/profile/experience', formData, config);
 
         dispatch({
@@ -188,7 +187,7 @@ export const getGithubRepos = username => async dispatch  => {
  export const deleteExperience = id => async dispatch =>{
      try {
          const res = await axios.delete(`/api/profile/experience/${id}`);
-         console.log('🌏🌔', res);
+        
          dispatch({
              type: UPDATE_PROFILE,
              payload: res.data
