@@ -12,7 +12,7 @@ const Profiles = ({ getProfiles, profile:{ profiles, loading}}) => {
     getProfiles();
     
     
-  },[] );
+  },[getProfiles] );
   
   return <Fragment>
   { loading ? <Spinner/> : <Fragment>
