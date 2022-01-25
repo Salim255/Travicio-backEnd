@@ -8,11 +8,14 @@ import ProfileAbout from './ProfileAbout';
 import { getProfileById} from '../../actions/profileAction';
 import ProfileExperience from './ProfileExperience';
 import ProfileEducation from './ProfileEducation';
+
+
 const Profile = ({getProfileById, profile: {profile, loading}, match , auth}) => {
     useEffect(( ) => {
         getProfileById(match.params.id);
     }, [ getProfileById, match.params.id]);
   
+    console.log(profile);
   return <Fragment>
       {profile === null || loading ? <Spinner/> : <Fragment>
           <Link to='/profiles' className='btn btn-light'>
@@ -40,6 +43,7 @@ const Profile = ({getProfileById, profile: {profile, loading}, match , auth}) =>
                       ))}
                   </Fragment>) : (<h4>No education credentials</h4>)}
               </div>
+             
           </div>
       </Fragment> }
   </Fragment>
@@ -54,4 +58,4 @@ const mapStateToProps = state =>({
     profile: state.profileReducer,
     auth: state.authReducer
 })
-export default connect(mapStateToProps, {getProfileById})  (Profile);
+export default connect(mapStateToProps, {getProfileById})(Profile);

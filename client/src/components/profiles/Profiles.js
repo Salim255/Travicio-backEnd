@@ -6,7 +6,7 @@ import ProfileItem from './ProfileItem';
 import  { getProfiles } from '../../actions/profileAction';
 
 const Profiles = ({ getProfiles, profile:{ profiles, loading}}) => {
-  console.log(profiles);
+  
   useEffect(() => {
    
     getProfiles();
@@ -16,7 +16,7 @@ const Profiles = ({ getProfiles, profile:{ profiles, loading}}) => {
   
   return <Fragment>
   { loading ? <Spinner/> : <Fragment>
-    <h className="large text-primary">Devlopers</h>
+    <h1 className="large text-primary">Devlopers</h1>
     <p className="lead">
       <i className="fab fa-connectdevelop"></i>
       Browse and connect with develpers</p>
