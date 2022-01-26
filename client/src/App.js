@@ -14,6 +14,7 @@ import AddEducation from './components/profile-form/AddEducation';
 import Profiles from './components/profiles/Profiles';
 import Profile from './components/Profile/Profile';
 import Posts from './components/posts/Posts';
+import Post from './components/post/Post';
 
 //Redux
 import { Provider } from 'react-redux';//in order to connect redux with react
@@ -54,6 +55,7 @@ const App =() => {
                 <PrivateRoute exact path='/add-education' component={ AddEducation }/>
                 <PrivateRoute exact path='/create-profile' component={ CreateProfile }/>
                 <PrivateRoute exact path='/posts' component={ Posts }/>
+                <PrivateRoute exact path='/post/:id' component={ Post }/>
               </Switch>
             </section>
           </Fragment>
