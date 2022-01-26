@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import PostItem from '../posts/PostItem';
 import { getPost} from '../../actions/postAction';
 import { Link } from 'react-router-dom';
+import CommentForm from './CommentForm';
 
 
 const Post = ({getPost, post:{post, loading}, match}) => {
@@ -17,6 +18,7 @@ const Post = ({getPost, post:{post, loading}, match}) => {
           Back To Post
       </Link>
       <PostItem post={post} showActions={false}/>
+      <CommentForm postId={post._id} />
   </Fragment>
 };
 
